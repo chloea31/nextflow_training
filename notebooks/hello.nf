@@ -25,7 +25,7 @@ process CONVERTTOUPPER {
 
     script: 
     """
-    cat $y | tr '[a-z]' '[A-Z]'
+    rev $y
     """
 } 
 // this process converts strings to upper
