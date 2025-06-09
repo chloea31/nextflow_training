@@ -1,4 +1,4 @@
-#!/usr/bin/env nextflow
+#!/usr/bin/env nextflow // shebang: indicates what program should be used to interpret this script code
 
 // Default parameter input
 params.str = "Hello world!"
@@ -11,7 +11,8 @@ process split {
     val x
     
     output:
-    path 'chunk_*'
+    path 'chunk_*' 
+    // "I do not care about what new things appear in this folder, but I only care about these ones to be passed to the next process"
 
     script:
     """
