@@ -18,7 +18,9 @@ process split {
     """
     printf '${x}' | split -b 6 - chunk_
     """
-}
+} 
+// the string was split in files, each of them containing no more than 6 characters of the original string
+// we also want each of these files to be named chunk_
 
 // convert_to_upper process
 process convert_to_upper {
@@ -36,6 +38,7 @@ process convert_to_upper {
     cat $y | tr '[a-z]' '[A-Z]' > upper_${y}
     """
 }
+// this process converts strings to upper
 
 // Workflow block
 workflow {
