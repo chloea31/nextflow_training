@@ -1,0 +1,6 @@
+name: EnvNextflow
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - nextflow
