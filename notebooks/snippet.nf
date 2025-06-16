@@ -130,6 +130,22 @@ process FOO_4 {
     """
 }
 
+ch1 = Channel.of(1, 2, 3)
+ch2 = Channel.of('a')
+
+process FOO_5 {
+    debug true
+
+    input:
+    val x
+    val y
+
+    script:
+    """
+    echo $x and $y
+    """
+}
+
 workflow {
-    FOO_4(ch1, ch2)
+    FOO_5(ch1, ch2)
 }
