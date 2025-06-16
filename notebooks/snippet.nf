@@ -114,6 +114,22 @@ process BASICEXAMPLE {
     """
 }
 
+ch1 = Channel.of(1, 2, 3)
+ch2 = Channel.of('a', 'b', 'c')
+
+process FOO_4 {
+    debug true
+
+    input:
+    val x
+    val y
+
+    script:
+    """
+    echo $x and $y
+    """
+}
+
 workflow {
-    BASICEXAMPLE(num)
+    FOO_4(ch1, ch2)
 }
