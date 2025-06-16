@@ -50,6 +50,15 @@ process FOO {
     """
 }
 
+process FOO_2 {
+    debug true
+
+    script:
+    """
+    echo "The current directory is \$PWD"
+    """
+}
+
 workflow {
-    FOO()
+    FOO_2()
 }
