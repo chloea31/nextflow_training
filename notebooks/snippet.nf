@@ -59,6 +59,15 @@ process FOO_2 {
     """
 }
 
+process BAR {
+    debug true
+
+    script:
+    '''
+    echo "The current directory is $PWD"
+    '''
+}
+
 workflow {
-    FOO_2()
+    BAR()
 }
