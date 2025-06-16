@@ -21,7 +21,35 @@ process EXAMPLE {
     """
 }
 
+//workflow {
+    //EXAMPLE()
+    //| view()
+//}
+
+process PYSTUFF {
+    debug true
+
+    script:
+    """
+    #!/usr/bin/env python
+
+    x = 'Hello'
+    y = 'world!'
+    print ("%s - %s" % (x, y))
+    """
+}
+
+params.data = 'World'
+
+process FOO {
+    debug true
+
+    script:
+    """
+    echo Hello $params.data
+    """
+}
+
 workflow {
-    EXAMPLE()
-    | view()
+    FOO()
 }
