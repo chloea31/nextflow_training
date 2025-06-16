@@ -131,7 +131,7 @@ process FOO_4 {
 }
 
 ch1 = Channel.of(1, 2, 3)
-ch2 = Channel.of('a')
+ch2 = Channel.value('a')
 
 process FOO_5 {
     debug true
