@@ -68,6 +68,16 @@ process BAR {
     '''
 }
 
+params.data2 = 'le monde'
+
+process BAZ {
+    shell:
+    '''
+    X='Bonjour'
+    echo $X !{params.data2}
+    '''
+}
+
 workflow {
-    BAR()
+    BAZ()
 }
