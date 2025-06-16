@@ -81,7 +81,7 @@ process BAZ {
 params.compress = 'gzip'
 params.file2compress = "$projectDir/data/ggal/transcriptome.fa"
 
-process FOO {
+process FOO_3 {
     debug true
 
     input:
@@ -100,6 +100,20 @@ process FOO {
         throw new IllegalArgumentException("Unknown compressor $params.compress")
 }
 
+num = Channel.of(1, 2, 3)
+
+process BASICEXAMPLE {
+    debug true
+
+    input:
+    val x
+
+    script:
+    """
+    echo process job $x
+    """
+}
+
 workflow {
-    FOO(params.file2compress)
+    BASICEXAMPLE(num)
 }
